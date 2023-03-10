@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App || PankajGupta</title>
+    <link rel="shortcut icon" href="./images/weather-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="App.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="w-[100vw] h-[100vh] text-white overflow-hidden">
+
+    <h1 class="text-center uppercase tracking-[1.75px]">Weather App</h1>
+    <div class="tab-container w-[90%] max-w-[550px] mt-16 mx-auto flex justify-between">
+        <p class="tab tracking-[1.75px] cursor-pointer text-sm pl-[8px] pr-[8px]" data-userWeather>Your Weather</p>
+        <p class="tab tracking-[1.75px] cursor-pointer text-sm pl-[8px] pr-[8px]" data-searchWeather>Search Weather
+        </p>
+    </div>
+    <!-- Container -->
+    <div class="weather-container">
+        <!-- grant location access -->
+        <div class="sub-container grant-location-container">
+            <img src="./images/location.png" width="80" height="80" loading="lazy" class="mb-[2rem]" />
+            <p class="font-[600] text-center text-[1.75rem]">Grant Location Access</p>
+            <p data-messageText
+                class="text-center mt-[0.75rem] mb-[1.75rem] tracking-[0.75px] font-light text-[0.85rem]">Allow
+                Access
+                To Get Weather Information</p>
+            <button class="btn uppercase text-[0.85rem] pl-[20px] pr-[20px] rounded-[5px] cursor-pointer bg-blue-700"
+                data-grantAccess>Grant Access</button>
+        </div>
+        <!-- search country form -->
+        <form
+            class="form-container w-[90%] max-w-[550px] my-0 mx-auto mb-12 hidden items-center justify-center gap-y-0 gap-x-[10px]"
+            data-searchForm>
+            <input placeholder="Search for city ..." data-searchInp
+                class="h-10 px-5 py-0 bg-[#969ead] rounded-[10px]" />
+            <button class="btn w-10 h-10 flex justify-center items-center rounded-[100%] bg-gray-400 mb-[1px]"
+                type="submit">
+                <img src="./images/search.png" width="20" height="20" loading="lazy" />
+            </button>
+        </form>
+        <!-- loading screen container -->
+        <div class="sub-container loading-container">
+            <img src="./images/loading.gif" width="150" height="150" />
+            <p class="uppercase">Loading</p>
+        </div>
+        <!-- show weather info -->
+        <div class="sub-container user-info-container">
+            <div class="name flex items-center mb-4 gap-x-[0] gap-y-2">
+                <p class="text-[2rem]" data-cityName></p>
+                <img class="w-[30px] h-[30px] object-contain" data-countryIcon />
+                <!-- crossorigin="anonymous" -->
+            </div>
+            <p class="capitalize" data-weatherDesc></p>
+            <img class="w-[90px] h-[90px]" data-weatherIcon />
+            <p class="text-[2.75rem] font-bold" data-temp></p>
+            <div
+                class="parameter-container w-[90%] my-0 mx-auto mt-8 flex justify-center flex-wrap gap-x-[10px] gap-y-5">
+                <div
+                    class="parameter w-[30%] max-w-[200px] bg-[#969ead] rounded-[5px] px-4 py-4 flex flex-col justify-between items-center gap-x-[5px] gap-y-0">
+                    <img src="./images/wind.png" class="w-[50px] h-[50px] object-cover" />
+                    <p class="parameter-title text-[1.15rem] font-semibold uppercase">windspeed</p>
+                    <p class="parameter-value text-base font-extralight" data-windspeed></p>
+                </div>
+                <div
+                    class="parameter w-[30%] max-w-[200px] bg-[#969ead] rounded-[5px] px-4 py-4 flex flex-col justify-between items-center gap-x-[5px] gap-y-0">
+                    <img src="./images/humidity.png" class="w-[50px] h-[50px] object-cover" />
+                    <p class="parameter-title text-[1.15rem] font-semibold uppercase">humidity</p>
+                    <p class="parameter-value text-base font-extralight" data-humidity></p>
+                </div>
+                <div
+                    class="parameter w-[30%] max-w-[200px] bg-[#969ead] rounded-[5px] px-4 py-4 flex flex-col justify-between items-center gap-x-[5px] gap-y-0">
+                    <img src="./images/cloud.png" class="w-[50px] h-[50px] object-cover" />
+                    <p class="parameter-title text-[1.15rem] font-semibold uppercase">clouds</p>
+                    <p class="parameter-value text-base font-extralight" data-cloudiness></p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="App.js"></script>
+</body>
+
+</html>
